@@ -42,7 +42,7 @@ def home_page():
     st.image(img_banner)
 
     st.write(f"""<h2>The Problem</h2>   
-    <p>One of the biggest problems facing, Uppalapadu and many other places in the world is access to clean water. Predicting the quality of water is crucial to guaranteeing that there is clean, safe water available for drinking, farming, and other uses. However, conventional techniques for predicting the quality of water are frequently expensive and time-consuming, and they might not deliver correct information quickly. Our team has started working on a project to use machine learning to create an automated system for predicting water quality in order to address this problem.
+    <p>Access to clean water is a major challenge in Uppalapadu and similar regions globally, with dire consequences for health, including skin diseases due to contaminated water use. Ensuring water quality is vital for safe drinking, farming, and other activities. Traditional methods for water quality assessment are often costly, slow, and may not provide timely, accurate results. To combat this, our team has started working on a project to use machine learning to create an automated system for predicting water quality to address this problem.
 </p> """, unsafe_allow_html=True)
 
     st.write(f"""<h2>Project goal</h2> <p>The principal objective of this project is to create a precise and effective machine learning model that can forecast water quality by considering various factors like turbidity, amount of organic carbon in ppm, amount of trihalomethanes in μg/L, and electrical conductivity of the water. The model is intended to generate water quality predictions and will be trained on a sizable dataset of historical data on water quality.
