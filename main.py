@@ -11,7 +11,9 @@ from streamlit_option_menu import option_menu
 @st.cache_resource
 def load_model():
     with open('assets/model.pkl', 'rb') as f:
-        return pickle.load(f)
+        model = pickle.load(f)
+        # print(model.__dict__)
+        return model
 
 
 st.set_page_config(page_title="AquaCheck", page_icon="💧", initial_sidebar_state="expanded")
@@ -140,7 +142,7 @@ def contributors_page():
                             <td>20BQ1A4242</td>
                         </tr>
                         <tr>
-                            <td>Mokshita Kakarla</td>
+                            <td>Mokshitha Kakarla</td>
                             <td>20BQ1A4225</td>
                         </tr>
                     </tbody>
