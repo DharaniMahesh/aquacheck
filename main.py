@@ -8,21 +8,14 @@ from stqdm import stqdm
 from streamlit_option_menu import option_menu
 
 from flask import Flask, request
-import socket
 import numpy as np
-import io
 import cv2
-import json
-import base64
 import os
 #custom
 from custom.credentials import token, account
 from custom.essentials import stringToRGB, get_model
 from custom.whatsapp import whatsapp_message
-import streamlit as st
 from validation import input_validation
-import re
-from io import StringIO
 
 
 @st.cache_resource
