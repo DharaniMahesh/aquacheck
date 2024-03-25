@@ -22,15 +22,15 @@ def input_validation(uploaded_file, patient_name, patient_contact_number, doctor
     st.stop()
 
 
-  # patient_contact_number = patient_contact_number.replace(' ', '')
-  # doctor_contact_number = doctor_contact_number.replace(' ', '')
+  patient_contact_number = patient_contact_number.replace(' ', '')
+  doctor_contact_number = doctor_contact_number.replace(' ', '')
 
-  # re_patient = re.match(r'[0-9]{10}', patient_contact_number)
-  # re_doctor = re.match(r'[0-9]{10}', doctor_contact_number)
+  re_patient = re.match(r'[0-9]{10}', patient_contact_number)
+  re_doctor = re.match(r'[0-9]{10}', doctor_contact_number)
 
-  # if not re_doctor:
-  #   st.error("Incorrect doctor's contact number. Enter without extension")
-  #   st.stop()
-  # if not re_patient:
-  #   st.error("Incorrect patient's contact number. Enter without extension")
-  #   st.stop()
+  if not re_doctor:
+    st.error("Incorrect contact number Format")
+    st.stop()
+  if not re_patient:
+    st.error("Incorrect contact number Format")
+    st.stop()

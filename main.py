@@ -16,6 +16,26 @@ from custom.credentials import token, account
 from custom.essentials import stringToRGB, get_model
 from custom.whatsapp import whatsapp_message
 from validation import input_validation
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.utils import cloudinary_url
+
+
+# Replace with your Cloudinary credentials
+config = cloudinary.config(secure=True)
+
+CLOUD_NAME=os.environ.get("cloud_name")
+API_KEY=os.environ.get("api")
+API_SECRET=os.environ.get("api_sec")
+
+
+
+cloudinary.config(
+    cloud_name=CLOUD_NAME,
+    api_key=API_KEY,
+    api_secret=API_SECRET
+)
 
 
 @st.cache_resource
@@ -24,6 +44,21 @@ def load_model():
         model = pickle.load(f)
         # print(model.__dict__)
         return model
+    
+
+
+def upload_image(image_path):
+  # Upload the image
+  print(image_path)
+  upload_result = cloudinary.uploader.upload(image_path)
+
+    # Extract the public URL from the upload result
+  public_url, options = cloudinary_url(upload_result['public_id'], format=upload_result['format'])
+  print(public_url)
+  return public_url
+
+ 
+
 
 
 st.set_page_config(page_title="AquaCheck", page_icon="💧", initial_sidebar_state="expanded")
@@ -128,7 +163,7 @@ def model_section():
         else:
             st.success('This Water Quality is Good')
 
-def disease_detect(result_img, patient_name, patient_contact_number, doctor_name, doctor_contact_number):
+def disease_detect(result_img, patient_name, patient_contact_number, doctor_name, doctor_contact_number, url):
   
   model_name = 'Model/best_model.h5'
   model = get_model()
@@ -160,10 +195,11 @@ def disease_detect(result_img, patient_name, patient_contact_number, doctor_name
   '''.format(patient_name, doctor_name, full_name, max_prob)
   print(patient_contact_number)
   #send whatsapp mesage to patient
-  whatsapp_message(token, account, patient_contact_number, message)
+  print(url)
+  whatsapp_message(token, account, patient_contact_number, message, url)
   print(doctor_contact_number)
   # sleep(5)
-  whatsapp_message(token, account, doctor_contact_number, message)
+  whatsapp_message(token, account, doctor_contact_number, message, url)
   return 'Success'
 
   
@@ -191,11 +227,12 @@ def streamlit_form():
         bytes_data = uploaded_file.getvalue()
         
         
-        with open(f'test_images/temp.{file_extension}', 'wb') as f:
+        with open(f'test_images/temp{file_extension}', 'wb') as f:
           f.write(bytes_data)
 
-        result_img = cv2.imread(f'test_images/temp.{file_extension}')
-        result = disease_detect(result_img, patient_name, patient_contact_number, doctor_name, doctor_contact_number)
+        result_img = cv2.imread(f'test_images/temp{file_extension}')
+        url = upload_image(f'test_images/temp{file_extension}')
+        result = disease_detect(result_img, patient_name, patient_contact_number, doctor_name, doctor_contact_number, url)
         st.success(result)
 
 
