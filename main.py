@@ -105,53 +105,53 @@ def model_section():
     with col1:
         ColourTCU = st.number_input(label="Colour (TCU)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
                                     key="test_slider0")
-        TurbidityNTU = st.number_input(label="Turbidity (NTU)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                                       key="test_slider1")
-        pH = st.number_input(label="pH", min_value=0.0, max_value=1000.0, step=50.0, format="%f", key="test_slider2")
+        # TurbidityNTU = st.number_input(label="Turbidity (NTU)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+        #                                key="test_slider1")
+        # pH = st.number_input(label="pH", min_value=0.0, max_value=1000.0, step=50.0, format="%f", key="test_slider2")
         ConductivityuS = st.number_input(label="Conductivity (uS/cm)", min_value=0.0, max_value=1000.0, step=50.0,
                                          format="%f", key="test_slider3")
-        TotalDissolvedSolids = st.number_input(label="Total Dissolved Solids (mg/l)", min_value=0.0, max_value=1000.0,
-                                               step=50.0, format="%f", key="test_slider4")
-        TotalHardness = st.number_input(label="Total Hardness (mg/l as CaCO3)", min_value=0.0, max_value=1000.0,
-                                        step=50.0, format="%f", key="test_slider5")
+        # TotalDissolvedSolids = st.number_input(label="Total Dissolved Solids (mg/l)", min_value=0.0, max_value=1000.0,
+        #                                        step=50.0, format="%f", key="test_slider4")
+        # TotalHardness = st.number_input(label="Total Hardness (mg/l as CaCO3)", min_value=0.0, max_value=1000.0,
+                                        # step=50.0, format="%f", key="test_slider5")
 
     with col2:
         Aluminium = st.number_input(label="Aluminium (mg/l)", min_value=0.0, max_value=1000.5, step=50.1, format="%f",
                                     key="test_slider6")
         Chloride = st.number_input(label="Chloride (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
                                    key="test_slider7")
-        Iron = st.number_input(label="Iron (mg/l)", min_value=0.0, max_value=1000.5, step=50.1, format="%f",
-                               key="test_slider8")
-        Sodium = st.number_input(label="Sodium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                                 key="test_slider9")
-        Sulphate = st.number_input(label="Sulphate (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                                   key="test_slider10")
-        Zinc = st.number_input(label="Zinc (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                               key="test_slider11")
+        # Iron = st.number_input(label="Iron (mg/l)", min_value=0.0, max_value=1000.5, step=50.1, format="%f",
+        #                        key="test_slider8")
+        # Sodium = st.number_input(label="Sodium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+        #                          key="test_slider9")
+        # Sulphate = st.number_input(label="Sulphate (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+        #                            key="test_slider10")
+        # Zinc = st.number_input(label="Zinc (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+                            #    key="test_slider11")
 
     with col3:
         Magnesium = st.number_input(label="Magnesium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
                                     key="test_slider12")
         Calcium = st.number_input(label="Calcium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
                                   key="test_slider13")
-        Potassium = st.number_input(label="Potassium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                                    key="test_slider14")
-        Nitrate = st.number_input(label="Nitrate (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
-                                  key="test_slider15")
-        Phosphate = st.number_input(label="Phosphate (mg/l)", min_value=0.0, max_value=1000.2, step=50.1, format="%f",
-                                    key="test_slider16")
+        # Potassium = st.number_input(label="Potassium (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+        #                             key="test_slider14")
+        # Nitrate = st.number_input(label="Nitrate (mg/l)", min_value=0.0, max_value=1000.0, step=50.0, format="%f",
+        #                           key="test_slider15")
+        # Phosphate = st.number_input(label="Phosphate (mg/l)", min_value=0.0, max_value=1000.2, step=50.1, format="%f",
+        #                             key="test_slider16")
         st.write("<br>", unsafe_allow_html=True)
         predict_button = st.button('  Predict Water Quality  ')
 
-    dataframe = pd.DataFrame({'Colour (TCU)': [ColourTCU], 'Turbidity (NTU)': [TurbidityNTU], 'pH': [pH],
+    dataframe = pd.DataFrame({'Colour (TCU)': [ColourTCU], 'Turbidity (NTU)': [400], 'pH': [500],
                               'Conductivity (uS/cm)': [ConductivityuS],
-                              'Total Dissolved Solids (mg/l)': [TotalDissolvedSolids],
-                              'Total Hardness (mg/l as CaCO3)': [TotalHardness], 'Aluminium (mg/l)': [Aluminium],
-                              'Chloride (mg/l)': [Chloride], 'Total Iron (mg/l)': [Iron],
-                              'Sodium (mg/l)': [Sodium], 'Sulphate (mg/l)': [Sulphate], 'Zinc (mg/l)': [Zinc],
+                              'Total Dissolved Solids (mg/l)': [250],
+                              'Total Hardness (mg/l as CaCO3)': [300], 'Aluminium (mg/l)': [Aluminium],
+                              'Chloride (mg/l)': [Chloride], 'Total Iron (mg/l)': [200],
+                              'Sodium (mg/l)': [550], 'Sulphate (mg/l)': [350], 'Zinc (mg/l)': [500],
                               'Magnesium (mg/l)': [Magnesium], 'Calcium (mg/l)': [Calcium],
-                              'Potassium (mg/l)': [Potassium], 'Nitrate (mg/l)': [Nitrate],
-                              'Phosphate (mg/l)': [Phosphate]})
+                              'Potassium (mg/l)': [200], 'Nitrate (mg/l)': [300],
+                              'Phosphate (mg/l)': [550]})
 
     if predict_button:
         model = load_model()
@@ -198,7 +198,15 @@ def disease_detect(result_img, patient_name, patient_contact_number, doctor_name
   print(url)
   whatsapp_message(token, account, patient_contact_number, message, url)
   print(doctor_contact_number)
-  # sleep(5)
+  sleep(2)
+  message = '''
+  Patient Name: {}
+  Paetient Contact Numbr: {}
+  Doctor Name: {}
+  Disease Name : {}
+  Confidence: {}
+
+  '''.format(patient_name, patient_contact_number,doctor_name, full_name, max_prob)
   whatsapp_message(token, account, doctor_contact_number, message, url)
   return 'Success'
 
@@ -252,28 +260,31 @@ def contributors_page():
                 <table>
                     <tbody>
                         <tr>
-                            <th width="20%" style="font-size: 140%;" colspan="2">Contributors</th>
+                            <th width="20%" style="font-size: 140%;" colspan="3">Contributors</th>
                         </tr>
                         <tr>
                             <td width="20%"> Dharani Mahesh Dadi</td>
                             <td width="20%"> 20BQ1A4213</td>
+                            <td width="20%"> 9398241099</td>
                         </tr>
                         <tr>
                             <td>Hrudayesh Yaddala</td>
                             <td>20BQ1A4264</td>
+                            <td>9381091871</td>
                         </tr>
                         <tr>
                             <td>Jashwanth Panitapu</td>
                             <td>20BQ1A4242</td>
+                            <td> 8106501665</td>
                         </tr>
                         <tr>
                             <td>Mokshitha Kakarla</td>
                             <td>20BQ1A4225</td>
+                            <td> 9014448207</td>
                         </tr>
                     </tbody>
                 </table>
                 </div>
-                <hr>
             """, unsafe_allow_html=True)
 
 
