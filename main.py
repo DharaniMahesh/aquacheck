@@ -201,7 +201,7 @@ def disease_detect(result_img, patient_name, patient_contact_number, doctor_name
   sleep(2)
   message = '''
   Patient Name: {}
-  Paetient Contact Numbr: {}
+  Patient Contact Numbr: {}
   Doctor Name: {}
   Disease Name : {}
   Confidence: {}
